@@ -2,26 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+  @apply transition-colors duration-300
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Target the scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Style the scrollbar track (the area where the thumb moves) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the background color of the track */
+}
+
+/* Style the scrollbar thumb (the draggable handle) */
+::-webkit-scrollbar-thumb {
+  background-color: #737373; /* Set the background color of the thumb */
+  border-radius: 6px; /* Set the border radius to round the corners of the thumb */
+}
+
+/* On hover, style the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #262626; /* Set a different color on hover */
 }
