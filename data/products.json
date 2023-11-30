@@ -1,0 +1,102 @@
+[
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-26",
+    "mainImage": "/assets/T-shirt/a black t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/black.jpg",
+    "name": "Black plain t-shirt",
+    "description": "Plain black t-shirt",
+    "color": "black",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-36",
+    "mainImage": "/assets/T-shirt/a white t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/white.jpg",
+    "name": "White plain t-shirt",
+    "description": "Plain white t-shirt",
+    "color": "white",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-46",
+    "mainImage": "/assets/T-shirt/a red t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/red.jpg",
+    "name": "Red plain t-shirt",
+    "description": "Plain red t-shirt",
+    "color": "red",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-56",
+    "mainImage": "/assets/T-shirt/a blue t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/blue.jpg",
+    "name": "Blue plain t-shirt",
+    "description": "Plain blue t-shirt",
+    "color": "blue",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-66",
+    "mainImage": "/assets/T-shirt/a green t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/green.jpg",
+    "name": "Green plain t-shirt",
+    "description": "Plain green t-shirt",
+    "color": "green",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-76",
+    "mainImage": "/assets/T-shirt/a brown t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/brown.jpg",
+    "name": "Brown plain t-shirt",
+    "description": "Plain brown t-shirt",
+    "color": "brown",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-86",
+    "mainImage": "/assets/T-shirt/a gray t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/gray.jpg",
+    "name": "Gray plain t-shirt",
+    "description": "Plain gray t-shirt",
+    "color": "gray",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-96",
+    "mainImage": "/assets/T-shirt/a orange t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/orange.jpg",
+    "name": "Orange plain t-shirt",
+    "description": "Plain orange t-shirt",
+    "color": "orange",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-106",
+    "mainImage": "/assets/T-shirt/a purple t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/purple.jpg",
+    "name": "Purple plain t-shirt",
+    "description": "Plain purple t-shirt",
+    "color": "purple",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  },
+  {
+    "id": "5e6c93f2-8521-4957-bbcd-116",
+    "mainImage": "/assets/T-shirt/a yellow t-shirt 0.png",
+    "secondIMage": "/assets/T-shirt/yellow.jpg",
+    "name": "Yellow plain t-shirt",
+    "description": "Plain yellow t-shirt",
+    "color": "yellow",
+    "size": ["XS", "S", "M", "L"],
+    "price": 40000
+  }
+]
