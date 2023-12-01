@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-export default function ComponentProducts({ dataSize, price, id, name, image }) {
+export default function ComponentProducts({ dataSize, price, id, name, image, color }) {
   const [selectedSize, setSelectedSize] = useState('XS')
 
   const handleSelectSize = (event) => {
@@ -14,19 +14,19 @@ export default function ComponentProducts({ dataSize, price, id, name, image }) 
 
     switch (selectedSize) {
       case 'S':
-        updatePrice += 5000
+        updatePrice += 5
         break;
       case 'M':
-        updatePrice += 10000
+        updatePrice += 10
         break;
       case 'L':
-        updatePrice += 15000
+        updatePrice += 15
         break;
       case 'XL':
-        updatePrice += 20000
+        updatePrice += 20
         break;
       case 'XXL':
-        updatePrice += 25000
+        updatePrice += 25
         break;
 
       default:
@@ -37,11 +37,28 @@ export default function ComponentProducts({ dataSize, price, id, name, image }) 
     return updatePrice
   }
 
-  let updateCart = []
+  let updateCart = JSON.parse(localStorage.getItem('cartData'));
+
+  if (!updateCart) {
+    updateCart = []
+  }
+
+  const saveStorage = () => {
+    localStorage.setItem('cartData', JSON.stringify(updateCart))
+  }
 
   const handleAddButton = (props) => {
-    console.log(props);
-    //localStorage.setItem('cartItem')
+    const price = calculateUpdatedPrice()
+    updateCart.push({
+      id: props.id,
+      name: props.name,
+      image: props.image,
+      size: props.selectedSize,
+      price,
+      color: props.color
+    })
+
+    saveStorage()
   }
 
   return (
@@ -54,10 +71,10 @@ export default function ComponentProducts({ dataSize, price, id, name, image }) 
           {dataSize?.map((size, index) => <option value={size} key={index}>{size}</option>)}
 
         </select>
-        <p className='italic text-neutral-800'>Rp. {calculateUpdatedPrice()}</p>
+        <p className='italic text-neutral-800'>{calculateUpdatedPrice()}<i>k</i></p>
       </div>
       <button
-        onClick={() => handleAddButton({ id, name, image, selectedSize, calculateUpdatedPrice })}
+        onClick={() => handleAddButton({ id, name, image, selectedSize, color })}
         className='px-3 py-1 text-sm bg-neutral-900 text-neutral-100 cursor-pointer border rounded-lg hover:rounded-2xl'>
         Add to cart</button>
     </>

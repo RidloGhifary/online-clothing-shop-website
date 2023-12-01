@@ -10,7 +10,7 @@ export default async function CartProduct() {
     datas?.map((data, index) => {
 
       return (
-        <div id={data.id} className='w-[200px] border rounded-md shadow-md bg-white' key={index}>
+        <div id={data.id} className='w-[170px] md:w-[200px] border rounded-md shadow-md bg-white' key={index}>
           <div className='w-full'>
             <Image src={data.mainImage} alt={data.description} width={200} height={200}
               className='w-full object-cover object-center rounded-t-md' />
@@ -23,7 +23,8 @@ export default async function CartProduct() {
               price={data.price}
               id={data.id}
               name={data.name}
-              image={data.mainImage} />
+              image={data.mainImage}
+              color={data.color} />
           </div>
         </div>
       );
