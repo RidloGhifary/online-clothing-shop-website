@@ -1,5 +1,5 @@
 import Image from "next/image";
-import mainBg from '/assets/main-background.jpg'
+import mainBg from '/public/assets/main-background.jpg'
 import { ArrowCircleDown } from "@phosphor-icons/react/dist/ssr";
 
 export default function Header() {
