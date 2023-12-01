@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import imageSrcBlack from '../../../assets/jombang polosan logo black.png'
+import imageSrcBlack from '/public/assets/jombang polosan logo black.png'
 import { Envelope, InstagramLogo, MessengerLogo, WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
 
 export default function MobileLayout() {
   return (
-    <div className="bg-black backdrop-blur-md h-[100vh] text-white py-4">
+    <div className="bg-neutral-900 backdrop-blur-md h-[100vh] text-white py-4">
       <div className='flex justify-center items-center gap-6 -ml-7'>
         <Image src={imageSrcBlack} alt="Jombang-polosan-logo" width={50} height={50} />
         <h1 className='font-bold cursor-pointer -ml-6 drop-shadow-md'>Jombang Polosan</h1>

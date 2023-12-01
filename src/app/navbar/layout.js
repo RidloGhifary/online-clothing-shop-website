@@ -1,11 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import imageSrcBlack from '../../../assets/jombang polosan logo black.png'
-import imageSrcWhite from '../../../assets/jombang polosan logo white.png'
+import imageSrcBlack from '/public/assets/jombang polosan logo black.png'
+import imageSrcWhite from '/public/assets/jombang polosan logo white.png'
 import { List, MoonStars, ShoppingCartSimple, Sun, X } from '@phosphor-icons/react/dist/ssr'
 import MobileLayout from './mobileLayout'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export default function Navbar() {
 
