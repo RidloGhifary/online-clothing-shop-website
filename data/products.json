@@ -7,7 +7,7 @@
     "description": "Plain black t-shirt",
     "color": "black",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-36",
@@ -17,7 +17,7 @@
     "description": "Plain white t-shirt",
     "color": "white",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-46",
@@ -27,7 +27,7 @@
     "description": "Plain red t-shirt",
     "color": "red",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-56",
@@ -37,7 +37,7 @@
     "description": "Plain blue t-shirt",
     "color": "blue",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-66",
@@ -47,7 +47,7 @@
     "description": "Plain green t-shirt",
     "color": "green",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-76",
@@ -57,7 +57,7 @@
     "description": "Plain brown t-shirt",
     "color": "brown",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-86",
@@ -67,7 +67,7 @@
     "description": "Plain gray t-shirt",
     "color": "gray",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-96",
@@ -77,7 +77,7 @@
     "description": "Plain orange t-shirt",
     "color": "orange",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-106",
@@ -87,7 +87,7 @@
     "description": "Plain purple t-shirt",
     "color": "purple",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   },
   {
     "id": "5e6c93f2-8521-4957-bbcd-116",
@@ -97,6 +97,6 @@
     "description": "Plain yellow t-shirt",
     "color": "yellow",
     "size": ["XS", "S", "M", "L", "XL", "XXL"],
-    "price": 24000
+    "price": 24
   }
 ]
