@@ -24,7 +24,8 @@ export default async function CartProduct() {
               id={data.id}
               name={data.name}
               image={data.mainImage}
-              color={data.color} />
+              color={data.color}
+              amount={data.amount} />
           </div>
         </div>
       );

@@ -1,8 +1,7 @@
 'use client'
+import { useState } from "react"
 
-import { useState, useEffect } from "react"
-
-export default function ComponentProducts({ dataSize, price, id, name, image, color }) {
+export default function ComponentProducts({ dataSize, price, id, name, image, color, amount }) {
   const [selectedSize, setSelectedSize] = useState('XS')
 
   const handleSelectSize = (event) => {
@@ -37,11 +36,8 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
     return updatePrice
   }
 
-  let updateCart = JSON.parse(localStorage.getItem('cartData'));
-
-  if (!updateCart) {
-    updateCart = []
-  }
+  const [addedToCart, setAddedToCart] = useState(false);
+  let updateCart = JSON.parse(localStorage.getItem('cartData')) || []
 
   const saveStorage = () => {
     localStorage.setItem('cartData', JSON.stringify(updateCart))
@@ -49,16 +45,27 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
 
   const handleAddButton = (props) => {
     const price = calculateUpdatedPrice()
-    updateCart.push({
-      id: props.id,
-      name: props.name,
-      image: props.image,
-      size: props.selectedSize,
-      price,
-      color: props.color
-    })
+    const exsitingItem = updateCart.findIndex(item => item.id === props.id)
+    if (exsitingItem !== -1) {
+      updateCart[exsitingItem].amount++
+      updateCart[exsitingItem].price += price
+    } else {
+      updateCart.push({
+        id: props.id,
+        name: props.name,
+        image: props.image,
+        size: props.selectedSize,
+        color: props.color,
+        amount: 1,
+        price
+      })
+    }
+    saveStorage();
+    setAddedToCart(true);
 
-    saveStorage()
+    setTimeout(() => {
+      setAddedToCart(false);
+    }, 2000);
   }
 
   return (
@@ -67,16 +74,16 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
         <select id="size" className='border rounded-md px-2 pr-3'
           onChange={event => handleSelectSize(event)}
           value={selectedSize}>
-
           {dataSize?.map((size, index) => <option value={size} key={index}>{size}</option>)}
-
         </select>
         <p className='italic text-neutral-800'>{calculateUpdatedPrice()}<i>k</i></p>
       </div>
       <button
-        onClick={() => handleAddButton({ id, name, image, selectedSize, color })}
-        className='px-3 py-1 text-sm bg-neutral-900 text-neutral-100 cursor-pointer border rounded-lg hover:rounded-2xl'>
-        Add to cart</button>
+        onClick={() => handleAddButton({ id, name, image, selectedSize, color, amount })}
+        className='px-3 py-1 text-sm bg-neutral-900 text-neutral-100 cursor-pointer border rounded-lg hover:rounded-2xl'
+        disabled={addedToCart}>
+        {addedToCart ? "Added" : "Add to Cart"}
+      </button>
     </>
   )
 }

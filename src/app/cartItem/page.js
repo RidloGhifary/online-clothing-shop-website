@@ -1,79 +1,137 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { CaretDoubleUp, CaretDoubleDown } from '@phosphor-icons/react/dist/ssr'
 import CartNavbar from "../navbar/cartNavbar";
+import Image from "next/image";
+import OrderCalculation from "../orderCalculation/orderCalculation";
+import DeliveryDate from "../compents/deliveryDate/deliveryDate";
 
 export default function cartItem() {
   const [updateCart, setUpdateCart] = useState([])
-  const [orderSummary, setOrderSummary] = useState(false)
 
   useEffect(() => {
     let updateCart = JSON.parse(localStorage.getItem('cartData'));
     setUpdateCart(updateCart)
-  }, [])
+  }, [updateCart])
 
-  const handleOrderSummary = () => {
-    setOrderSummary(!orderSummary)
+  const saveStorage = () => {
+    localStorage.setItem('cartData', JSON.stringify(updateCart))
+  }
+
+  const increaseAmount = (index) => {
+    const updateCarts = [...updateCart]
+    if (updateCarts[index].amount < 100) {
+      updateCarts[index].amount += 1
+
+      switch (updateCart[index].size) {
+        case 'XS':
+          updateCart[index].price += 24
+          break;
+        case 'S':
+          updateCart[index].price += 29
+          break;
+        case 'M':
+          updateCart[index].price += 34
+          break;
+        case 'L':
+          updateCart[index].price += 39
+          break;
+        case 'XL':
+          updateCart[index].price += 44
+          break;
+        case 'XXL':
+          updateCart[index].price += 49
+          break;
+
+        default:
+          updateCart[index].price = updateCart[index].price
+          break;
+      }
+    } else {
+      return;
+    }
+    setUpdateCart(updateCarts);
+    saveStorage()
+  }
+
+  const decreaseAmount = (index) => {
+    const updateCarts = [...updateCart]
+    if (updateCarts[index].amount > 1) {
+      updateCarts[index].amount -= 1
+      switch (updateCart[index].size) {
+        case 'XS':
+          updateCart[index].price -= 24
+          break;
+        case 'S':
+          updateCart[index].price -= 29
+          break;
+        case 'M':
+          updateCart[index].price -= 34
+          break;
+        case 'L':
+          updateCart[index].price -= 39
+          break;
+        case 'XL':
+          updateCart[index].price -= 44
+          break;
+        case 'XXL':
+          updateCart[index].price -= 49
+          break;
+
+        default:
+          updateCart[index].price = updateCart[index].price
+          break;
+      }
+    } else {
+      return;
+    }
+    setUpdateCart(updateCarts);
+    saveStorage()
+  }
+
+  const deleteProductFromCart = (index) => {
+    updateCart.splice(index, 1)
+    saveStorage()
   }
 
   return (
     <>
       <CartNavbar />
-      <div className="w-full max-w-[1200px] mx-auto px-10 md:px-20 py-20">
+      <div className="w-full min-h-full max-w-[900px] mx-auto px-10 md:px-20 pt-8">
         {/* render cart product below here */}
-        
-
-        {/* order summary belo here */}
-        <div className="w-full max-w-[900px] bg-white dark:bg-neutral-900 dark:text-white absolute bottom-0 left-[50%] translate-x-[-50%]">
-          <div className="">
-            <div className="flex justify-between items-center p-5 border-t">
-              <p className="font-medium text-lg">Total Items : (<i>5</i>)</p>
-              <button onClick={handleOrderSummary}>
-                {orderSummary ?
-                  <CaretDoubleUp size={28} weight="bold" /> :
-                  <CaretDoubleDown size={28} weight="bold" />
-                }
-              </button>
-            </div>
-
-            <div className={orderSummary ?
-              "p-4 h-0 hidden" :
-              "p-4 transition-all duration-200 h-auto block"}>
-              <h1 className="font-bold text-2xl">Order Summary</h1>
-
-              <div className="flex flex-col my-3">
-                <div className="flex justify-between items-center my-[2px]">
-                  <p className="font-medium">Items(2):</p>
-                  <p className="font-normal italic">Rp. 100.000</p>
-                </div>
-                <div className="flex justify-between items-center my-[2px]">
-                  <p className="font-medium">Shipping & handling:</p>
-                  <p className="font-normal italic border-b border-neutral-500 pb-2">Rp. 100.000</p>
-                </div>
-                <div className="flex justify-between items-center my-[2px]">
-                  <p className="font-medium">Total before tax:</p>
-                  <p className="font-normal italic mt-1">Rp. 100.000</p>
-                </div>
-                <div className="flex justify-between items-center my-[2px]">
-                  <p className="font-medium">Estimated tax(10%):</p>
-                  <p className="font-normal italic">Rp. 10.000</p>
+        {updateCart?.map((cart, i) => {
+          return (
+            <section className="w-full grid grid-cols-2 md:grid-cols-3 mb-5 border rounded-sm p-2 shadow-md">
+              <div className="w-[180px] md:w-[200px] mx-auto border rounded-md shadow-md bg-white">
+                <div className="w-full h-full">
+                  <Image src={cart.image} alt={cart.name} width={300} height={300}
+                    className="w-full h-full object-cover object-center" />
                 </div>
               </div>
-            </div>
-          </div>
+              <div className="text-left bg-white">
+                <h1 className="font-semibold text-xl">{cart.name}</h1>
+                <p>Color: <i><b>{cart.color}</b></i></p>
+                <p>Size: <i><b>{cart.size}</b></i></p>
+                <p>Amount :</p>
+                <div className="flex items-center gap-5">
+                  <button className="bg-neutral-200 text-neutral-800 font-medium py-[2px] px-5 text-xl rounded-md hover:bg-neutral-400 transition-all duration-200"
+                    onClick={() => decreaseAmount(i)}>-</button>
+                  <p className="text-lg">{cart.amount}</p>
+                  <button className="bg-neutral-200 text-neutral-800 font-medium py-[2px] px-5 text-xl rounded-md hover:bg-neutral-400 transition-all duration-200"
+                    onClick={() => increaseAmount(i)}>+</button>
+                </div>
+                <p>Rp. {cart.price}.000</p>
+                <button className="mt-2 bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition-all duration-200"
+                  onClick={() => deleteProductFromCart(i)}>
+                  Delete</button>
+              </div>
+              <DeliveryDate id={cart.id} index={i} />
+            </section>
+          )
+        })}
 
-          <div className="flex justify-between items-center p-5 border-t">
-            <div className="flex flex-col">
-              <i className="text-neutral-600 text-base">Total price :</i>
-              <p className="font-semibold text-xl">Rp. 100.000</p>
-            </div>
-            <button className="px-3 py-1 text-lg bg-neutral-900 text-neutral-100 cursor-pointer border rounded-lg hover:rounded-2xl">
-              Checkout
-            </button>
-          </div>
-        </div>
-
+        {/* order summary belo here */}
+        <OrderCalculation />
       </div>
     </>
   )
