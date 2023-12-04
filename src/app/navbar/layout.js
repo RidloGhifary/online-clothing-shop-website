@@ -1,17 +1,23 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import imageSrcBlack from '/public/assets/jombang polosan logo black.png'
 import imageSrcWhite from '/public/assets/jombang polosan logo white.png'
 import MobileLayout from './mobileLayout'
 import { List, X, MoonStars, ShoppingCartSimple, Sun } from '@phosphor-icons/react/dist/ssr'
-import { useState } from 'react'
 import Link from 'next/link'
 
 export default function Navbar() {
 
   const [mobileLayout, setMobileLayout] = useState(false)
   const [chooseModeLayout, setChooseModeLayout] = useState(false)
+  const [dataStorages, setDataStorage] = useState([])
+
+  useEffect(() => {
+    const dataStorage = JSON.parse(localStorage.getItem('cartData')) || []
+    setDataStorage(dataStorage)
+  }, [])
 
   const showMobileLayout = () => {
     setMobileLayout(!mobileLayout)
@@ -26,7 +32,7 @@ export default function Navbar() {
 
   return (
     <div className={chooseModeLayout ? 'dark' : ' '}>
-      <div className='flex justify-between items-center p-4 px-5 md:px-12 backdrop-blur-sm bg-white/50 dark:bg-neutral-900'>
+      <div className='sticky top-0 left-0 flex justify-between items-center p-5 py-7 md:px-12 backdrop-blur-sm bg-white/50 dark:bg-neutral-900 dark:text-neutral-100'>
 
         <Link href='/'>
           <div className='flex justify-center items-center gap-6'>
@@ -43,13 +49,13 @@ export default function Navbar() {
             'text-white flex justify-center items-center gap-6' :
             'flex justify-center items-center gap-6'}>
             <li className='font-semibold hover:underline cursor-pointer transition-all duration-300 hover:-translate-x-2'>
-              <a href='#'>Product</a>
+              <Link href='#product'>Product</Link>
             </li>
             <li className='font-semibold hover:underline cursor-pointer transition-all duration-300 hover:translate-x-2'>
-              <a href='#'>Information</a>
+              <Link href='#information'>Information</Link>
             </li>
             <li className='font-semibold hover:underline cursor-pointer transition-all duration-300 hover:translate-x-2'>
-              <a href='#'>Contact</a>
+              <Link href='#contact'>Contact</Link>
             </li>
           </ul>
         </div>
@@ -66,11 +72,15 @@ export default function Navbar() {
             <Link href="/cartItem">
               <ShoppingCartSimple size={30}
                 color={chooseModeLayout ? '#ffffff' : '#292929'} />
-              <p className={chooseModeLayout ?
-                'absolute -top-4 left-[10px] text-white'
-                : 'absolute -top-4 left-[10px]'}>5</p>
             </Link>
-          </div>        </div>
+            <p className={chooseModeLayout ?
+              'absolute -top-4 left-[10px] text-white' :
+              'absolute -top-4 left-[10px]'}>
+              {dataStorages.length || 0}
+              {/*0*/}
+            </p>
+          </div>
+        </div>
 
         {/* HAMBURGER MENU */}
         <div className='flex justify-center items-center gap-5 md:hidden'>
@@ -85,11 +95,15 @@ export default function Navbar() {
             <Link href="/cartItem">
               <ShoppingCartSimple size={30}
                 color={chooseModeLayout ? '#ffffff' : '#292929'} />
-              <p className={chooseModeLayout ?
-                'absolute -top-4 left-[10px] text-white'
-                : 'absolute -top-4 left-[10px]'}>5</p>
             </Link>
-          </div>          <div className='cursor-pointer transition-all duration-300 hover:scale-105'
+            <p className={chooseModeLayout ?
+              'absolute -top-4 left-[10px] text-white'
+              : 'absolute -top-4 left-[10px]'}>
+              {dataStorages.length || 0}
+              {/*0*/}
+            </p>
+          </div>
+          <div className='cursor-pointer transition-all duration-300 hover:scale-105'
             onClick={showMobileLayout}>
             {
               mobileLayout ?

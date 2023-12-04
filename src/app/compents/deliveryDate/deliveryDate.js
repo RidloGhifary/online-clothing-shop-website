@@ -53,7 +53,7 @@ export default function DeliveryDate({ id, index }) {
             name={`delivery-option-` + id}
             required
             checked={isDeliveryOptionSelected(getDayAfterFiveDays)}
-            onChange={() => handleOptionChange(getDayAfterFiveDays, 15)}
+            onChange={() => handleOptionChange(getDayAfterFiveDays, 15000)}
           />
           <div>
             <p className="font-semibold text-green-700">{getDayAfterFiveDays}</p>
@@ -65,7 +65,7 @@ export default function DeliveryDate({ id, index }) {
             name={`delivery-option-` + id}
             required
             checked={isDeliveryOptionSelected(getDayAfterTwoDays)}
-            onChange={() => handleOptionChange(getDayAfterTwoDays, 25)}
+            onChange={() => handleOptionChange(getDayAfterTwoDays, 25000)}
           />
           <div>
             <p className="font-semibold text-green-700">{getDayAfterTwoDays}</p>

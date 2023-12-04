@@ -1,4 +1,5 @@
 'use client'
+import { FormatRupiah } from "@arismun/format-rupiah"
 import { useState } from "react"
 
 export default function ComponentProducts({ dataSize, price, id, name, image, color, amount }) {
@@ -13,19 +14,19 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
 
     switch (selectedSize) {
       case 'S':
-        updatePrice += 5
+        updatePrice += 5000
         break;
       case 'M':
-        updatePrice += 10
+        updatePrice += 10000
         break;
       case 'L':
-        updatePrice += 15
+        updatePrice += 15000
         break;
       case 'XL':
-        updatePrice += 20
+        updatePrice += 20000
         break;
       case 'XXL':
-        updatePrice += 25
+        updatePrice += 25000
         break;
 
       default:
@@ -76,7 +77,9 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
           value={selectedSize}>
           {dataSize?.map((size, index) => <option value={size} key={index}>{size}</option>)}
         </select>
-        <p className='italic text-neutral-800'>{calculateUpdatedPrice()}<i>k</i></p>
+        <p className='italic text-neutral-800 text-[16px]'>
+          <i><FormatRupiah value={calculateUpdatedPrice()} /></i>
+        </p>
       </div>
       <button
         onClick={() => handleAddButton({ id, name, image, selectedSize, color, amount })}
