@@ -5,6 +5,7 @@ import CartNavbar from "../navbar/cartNavbar";
 import Image from "next/image";
 import OrderCalculation from "../orderCalculation/orderCalculation";
 import DeliveryDate from "../compents/deliveryDate/deliveryDate";
+import { FormatRupiah } from "@arismun/format-rupiah";
 
 export default function cartItem() {
   const [updateCart, setUpdateCart] = useState([])
@@ -25,22 +26,22 @@ export default function cartItem() {
 
       switch (updateCart[index].size) {
         case 'XS':
-          updateCart[index].price += 24
+          updateCart[index].price += 24000
           break;
         case 'S':
-          updateCart[index].price += 29
+          updateCart[index].price += 29000
           break;
         case 'M':
-          updateCart[index].price += 34
+          updateCart[index].price += 34000
           break;
         case 'L':
-          updateCart[index].price += 39
+          updateCart[index].price += 39000
           break;
         case 'XL':
-          updateCart[index].price += 44
+          updateCart[index].price += 44000
           break;
         case 'XXL':
-          updateCart[index].price += 49
+          updateCart[index].price += 49000
           break;
 
         default:
@@ -60,22 +61,22 @@ export default function cartItem() {
       updateCarts[index].amount -= 1
       switch (updateCart[index].size) {
         case 'XS':
-          updateCart[index].price -= 24
+          updateCart[index].price -= 24000
           break;
         case 'S':
-          updateCart[index].price -= 29
+          updateCart[index].price -= 29000
           break;
         case 'M':
-          updateCart[index].price -= 34
+          updateCart[index].price -= 34000
           break;
         case 'L':
-          updateCart[index].price -= 39
+          updateCart[index].price -= 39000
           break;
         case 'XL':
-          updateCart[index].price -= 44
+          updateCart[index].price -= 44000
           break;
         case 'XXL':
-          updateCart[index].price -= 49
+          updateCart[index].price -= 49000
           break;
 
         default:
@@ -120,7 +121,9 @@ export default function cartItem() {
                   <button className="bg-neutral-200 text-neutral-800 font-medium py-[2px] px-5 text-xl rounded-md hover:bg-neutral-400 transition-all duration-200"
                     onClick={() => increaseAmount(i)}>+</button>
                 </div>
-                <p>Rp. {cart.price}.000</p>
+                <p>
+                  <FormatRupiah value={cart.price} />
+                </p>
                 <button className="mt-2 bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition-all duration-200"
                   onClick={() => deleteProductFromCart(i)}>
                   Delete</button>
