@@ -33,14 +33,14 @@ export default function DeliveryDate({ id, index }) {
   };
 
   return (
-    <section className="">
-      <h1 className="font-bold text-lg">Choose delivery options : </h1>
+    <section className="col-span-2 md:col-span-1">
+      <h1 className="font-bold text-lg text-neutral-800">Choose delivery options : </h1>
       <div className="mt-3">
         <div className="flex gap-3 items-center mb-2">
           <input type="radio" id="daliveryDate"
             name={`delivery-option-` + id}
             required
-            checked={!isDeliveryOptionSelected(getDayAfterSevenDays)}
+            checked={!isDeliveryOptionSelected(getDayAfterFiveDays) && !isDeliveryOptionSelected(getDayAfterTwoDays)}
             onChange={() => handleOptionChange(getDayAfterSevenDays, 0)}
           />
           <div>

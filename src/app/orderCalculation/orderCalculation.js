@@ -45,7 +45,7 @@ export default function OrderCalculation() {
   };
 
   return (
-    <div className="w-full max-w-[900px] bg-white dark:bg-neutral-900 dark:text-white sticky bottom-0 left-[50%]">
+    <div className="w-full max-w-[900px] bg-white dark:bg-neutral-900 dark:text-white fixed bottom-0 left-[50%] translate-x-[-50%]">
       <div className="">
         <div className="flex justify-between items-center p-5 border-t">
           <p className="font-medium text-lg">Total Items : (<b>{dataCart.length}</b>)</p>
