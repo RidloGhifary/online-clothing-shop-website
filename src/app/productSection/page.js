@@ -10,7 +10,7 @@ export default function ProductSection() {
   return (
     <div className="w-full max-w-[900px] mx-auto px-10 md:px-20 py-20" id='product'>
       <h1 className="text-center font-semibold text-3xl">Find Your Outfit</h1>
-      <div className="md:grid md:grid-cols-3 mt-14">
+      <div className="md:grid md:grid-cols-3 mt-[75px]">
 
         <div className="grid grid-cols-2 md:col-span-2 gap-3 md:gap-0 md:gap-y-5 justify-items-center md:px-6">
           <CartProduct />

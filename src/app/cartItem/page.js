@@ -10,11 +10,27 @@ import Link from "next/link";
 
 export default function cartItem() {
   const [updateCart, setUpdateCart] = useState([])
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     let updateCart = JSON.parse(localStorage.getItem('cartData'));
     setUpdateCart(updateCart)
   }, [updateCart])
+
+  useEffect(() => {
+    const theme = localStorage.getItem('theme')
+    if (theme === 'dark') setDarkMode(true)
+  }, [])
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  }, [darkMode])
 
   const saveStorage = () => {
     localStorage.setItem('cartData', JSON.stringify(updateCart))
@@ -97,7 +113,7 @@ export default function cartItem() {
   }
 
   return (
-    <div className="relative w-full h-full min-h-[100vh] max-w-[900px] mx-auto">
+    <div className="relative w-full h-full min-h-[100vh] max-w-[900px] mx-auto bg-white dark:bg-neutral-800">
       <CartNavbar />
       <div className="w-full mx-auto px-10 md:px-20 pt-8">
         {/* render cart product below here */}
@@ -112,14 +128,14 @@ export default function cartItem() {
             :
             updateCart?.map((cart, i) => {
               return (
-                <section className="w-full grid grid-cols-2 gap-4 md:gap-0 items-center md:grid-cols-3 mb-5 border rounded-sm p-2 shadow-md">
-                  <div className="w-[180px] md:w-[200px] mx-auto border rounded-md shadow-md bg-white">
+                <section className="w-full grid grid-cols-2 gap-4 md:gap-0 items-center md:grid-cols-3 mb-5 border dark:border-neutral-400 rounded-sm p-2 py-6 shadow-md dark:bg-neutral-800">
+                  <div className="w-[180px] md:w-[200px] mx-auto border dark:text-neutral-400 rounded-md shadow-md">
                     <div className="w-full h-full">
                       <Image src={cart.image} alt={cart.name} width={300} height={300}
-                        className="w-full h-full object-cover object-center" />
+                        className="w-full h-full object-cover object-center rounded-md" />
                     </div>
                   </div>
-                  <div className="text-left bg-white">
+                  <div className="text-left">
                     <h1 className="font-semibold text-xl">{cart.name}</h1>
                     <p>Color: <i><b>{cart.color}</b></i></p>
                     <p>Size: <i><b>{cart.size}</b></i></p>
@@ -134,7 +150,7 @@ export default function cartItem() {
                     <p>
                       <FormatRupiah value={cart.price} />
                     </p>
-                    <button className="mt-2 bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition-all duration-200"
+                    <button className="mt-2 bg-green-500 text-white py-1 px-3 rounded-md hover:bg-green-600 transition-all duration-200"
                       onClick={() => deleteProductFromCart(i)}>
                       Delete</button>
                   </div>

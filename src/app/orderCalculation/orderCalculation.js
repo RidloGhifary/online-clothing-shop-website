@@ -45,9 +45,11 @@ export default function OrderCalculation() {
   };
 
   return (
-    <div className="w-full max-w-[900px] bg-white dark:bg-neutral-900 dark:text-white fixed bottom-0 left-[50%] translate-x-[-50%]">
+    <div className={dataCart.length === 0 ?
+      "w-full max-w-[900px] bg-white dark:bg-neutral-800 dark:text-neutral-100 fixed bottom-0 left-[50%] translate-x-[-50%]"
+      : "w-full max-w-[900px] bg-white dark:bg-neutral-800 dark:text-neutral-100 sticky bottom-0 left-[50%]"}>
       <div className="">
-        <div className="flex justify-between items-center p-5 border-t">
+        <div className="flex justify-between items-center p-5 border-t dark:border-neutral-400">
           <p className="font-medium text-lg">Total Items : (<b>{dataCart.length}</b>)</p>
           <button onClick={handleOrderSummary}>
             {orderSummary ?
@@ -91,14 +93,14 @@ export default function OrderCalculation() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center p-5 border-t">
+      <div className="flex justify-between items-center p-5 border-t dark:border-neutral-400">
         <div className="flex flex-col">
-          <i className="text-neutral-600 text-base">Total price :</i>
+          <i className="text-neutral-600 dark:text-neutral-400 text-base">Total price :</i>
           <p className="font-semibold text-xl">
             <FormatRupiah value={totalAfterTax()} />
           </p>
         </div>
-        <button className="px-3 py-1 text-lg bg-neutral-900 text-neutral-100 cursor-pointer border rounded-lg hover:rounded-2xl">
+        <button className="transition px-3 py-1 text-lg bg-neutral-900 text-neutral-100 cursor-pointer border dark:border-neutral-400 rounded-lg hover:rounded-xl">
           Checkout
         </button>
       </div>

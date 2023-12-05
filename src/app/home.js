@@ -1,3 +1,4 @@
+import Colors from "./colors/page";
 import BannerPage from "./compents/banner/page";
 import Header from "./header/layout";
 import InformationPage from "./informationPage/page";
@@ -7,12 +8,14 @@ import ProductSection from "./productSection/page";
 export default function Page() {
 
   return (
-    <div>
+    <>
       <Header />
+      <Colors />
       <ProductSection />
       <BannerPage />
       <InformationPage />
       <Map />
-    </div>
+      <Colors />
+    </>
   )
 }

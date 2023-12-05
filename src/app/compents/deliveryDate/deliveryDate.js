@@ -34,7 +34,7 @@ export default function DeliveryDate({ id, index }) {
 
   return (
     <section className="col-span-2 md:col-span-1">
-      <h1 className="font-bold text-lg text-neutral-800">Choose delivery options : </h1>
+      <h1 className="font-bold text-lg text-neutral-800 dark:text-neutral-100">Choose delivery options : </h1>
       <div className="mt-3">
         <div className="flex gap-3 items-center mb-2">
           <input type="radio" id="daliveryDate"
@@ -44,7 +44,7 @@ export default function DeliveryDate({ id, index }) {
             onChange={() => handleOptionChange(getDayAfterSevenDays, 0)}
           />
           <div>
-            <p className="font-semibold text-green-700">{getDayAfterSevenDays}</p>
+            <p className="font-semibold text-green-700 dark:text-green-500">{getDayAfterSevenDays}</p>
             <p className="text-neutral-500 -mt-1">FREE Shipping</p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function DeliveryDate({ id, index }) {
             onChange={() => handleOptionChange(getDayAfterFiveDays, 15000)}
           />
           <div>
-            <p className="font-semibold text-green-700">{getDayAfterFiveDays}</p>
+            <p className="font-semibold text-green-700 dark:text-green-500">{getDayAfterFiveDays}</p>
             <p className="text-neutral-500 -mt-1">Rp. 15.000 - shipping</p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function DeliveryDate({ id, index }) {
             onChange={() => handleOptionChange(getDayAfterTwoDays, 25000)}
           />
           <div>
-            <p className="font-semibold text-green-700">{getDayAfterTwoDays}</p>
+            <p className="font-semibold text-green-700 dark:text-green-500">{getDayAfterTwoDays}</p>
             <p className="text-neutral-500 -mt-1">Rp. 25.000 - shipping</p>
           </div>
         </div>

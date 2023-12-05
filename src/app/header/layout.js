@@ -21,7 +21,7 @@ export default function Header() {
 
         <p className="font-medium text-white drop-shadow-md">Welcome to <b><i>Jombang Polosan</i></b>, where simplicity meets style! Dive into a world of understated elegance with our curated collection of plain t-shirts. We believe that beauty lies in simplicity, and our plain tees are a testament to this philosophy.</p>
 
-        <button className="flex items-center justify-center gap-1 mt-4 font-medium bg-white border border-neutral-900 py-1 px-5 rounded-md transition-all duration-200 hover:rounded-full">Explore
+        <button className="flex items-center justify-center gap-1 mt-4 font-medium bg-neutral-100 border border-neutral-900 py-1 px-5 rounded-md transition-all duration-200 hover:rounded-full dark:text-neutral-800">Explore
           <ArrowCircleDown size={22} color="#000000" />
         </button>
       </div>

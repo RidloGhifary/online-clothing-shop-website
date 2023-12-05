@@ -1,6 +1,6 @@
 'use client'
 import { FormatRupiah } from "@arismun/format-rupiah"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function ComponentProducts({ dataSize, price, id, name, image, color, amount }) {
   const [selectedSize, setSelectedSize] = useState('XS')
@@ -38,7 +38,12 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
   }
 
   const [addedToCart, setAddedToCart] = useState(false);
-  let updateCart = JSON.parse(localStorage.getItem('cartData')) || []
+  const [updateCart, setUpdateCart] = useState([])
+
+  useEffect(() => {
+    let updateCart = JSON.parse(localStorage.getItem('cartData')) || []
+    setUpdateCart(updateCart)
+  }, [updateCart])
 
   const saveStorage = () => {
     localStorage.setItem('cartData', JSON.stringify(updateCart))
@@ -72,7 +77,7 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
   return (
     <>
       <div className="my-3 flex justify-between items-center">
-        <select id="size" className='border rounded-md px-2 pr-3'
+        <select id="size" className='border rounded-md px-2 pr-3 dark:text-neutral-800'
           onChange={event => handleSelectSize(event)}
           value={selectedSize}>
           {dataSize?.map((size, index) => <option value={size} key={index}>{size}</option>)}
