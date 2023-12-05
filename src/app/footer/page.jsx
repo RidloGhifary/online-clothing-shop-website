@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import imageSrcBlack from '/public/assets/jombang polosan logo black.png'
+import imageSrcBlack from '/public/assets/icon.png'
 import { InstagramLogo, WhatsappLogo } from "@phosphor-icons/react/dist/ssr"
 
 export default function Footer() {
