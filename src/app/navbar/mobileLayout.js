@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import imageSrcBlack from '/public/assets/jombang polosan logo black.png'
 import { Envelope, InstagramLogo, MessengerLogo, WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
+import Link from 'next/link'
 
 export default function MobileLayout() {
   return (
@@ -12,13 +13,13 @@ export default function MobileLayout() {
 
       <ul className='p-5 mt-16'>
         <li className='font-semibold cursor-pointer hover:bg-white/30 hover:p-2 rounded transition-all duration-300 hover:translate-x-2 mb-7'>
-          <a href='#'>Product</a>
+          <Link href='#product'>Product</Link>
         </li>
         <li className='font-semibold cursor-pointer hover:bg-white/30 hover:p-2 rounded transition-all duration-300 hover:translate-x-2 mb-7'>
-          <a href='#'>Information</a>
+          <Link href='#information'>Information</Link>
         </li>
         <li className='font-semibold cursor-pointer hover:bg-white/30 hover:p-2 rounded transition-all duration-300 hover:translate-x-2 mb-7'>
-          <a href='#'>Contact</a>
+          <Link href='#contact'>Contact</Link>
         </li>
       </ul>
 

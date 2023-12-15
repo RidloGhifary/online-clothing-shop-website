@@ -17,7 +17,7 @@ export default function Navbar() {
   useEffect(() => {
     const dataStorage = JSON.parse(localStorage.getItem('cartData')) || []
     setDataStorage(dataStorage)
-  }, [])
+  }, [dataStorages])
 
   useEffect(() => {
     const theme = localStorage.getItem('theme')
@@ -79,7 +79,7 @@ export default function Navbar() {
               color={darkMode ? '#f1f1f1' : '#292929'} />
           </Link>
           <p className='absolute -top-4 left-[10px]'>
-            {dataStorages.length || 0}
+            {dataStorages.length}
           </p>
         </div>
       </div>
