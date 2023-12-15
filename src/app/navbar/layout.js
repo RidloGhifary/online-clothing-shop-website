@@ -39,7 +39,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className='w-full fixed top-0 left-0 z-50 flex justify-between items-center p-5 md:px-12 backdrop-blur-sm bg-white/50 dark:bg-neutral-900 dark:text-neutral-100'>
+    <div className='w-full fixed top-0 left-0 z-50 flex justify-between items-center p-5 md:px-12 bg-white dark:bg-neutral-900 dark:text-neutral-100'>
 
       <Link href='/'>
         <div className='flex justify-center items-center gap-6'>
