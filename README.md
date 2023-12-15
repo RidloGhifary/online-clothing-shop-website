@@ -1,4 +1,4 @@
-Project preview [`online-clothing-shop-website`](https://online-clothing-shop-website.vercel.app/)
+Project preview [`online-clothing-shop-website`](https://online-clothing-shop-website-8b063ntse-ridloghifarys-projects.vercel.app)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
