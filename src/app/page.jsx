@@ -6,8 +6,8 @@ import Colors from "@/components/Colors";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 import InformationCard from "@/components/InformationCard";
-import CartProduct from "./@productSection/_components/CartProduct";
 import ShopAdd from "@/components/ShopAdd";
+import CardProduct from "@/components/products/CardProduct";
 
 export default function Home() {
   return (
@@ -82,7 +82,7 @@ export default function Home() {
         <h2 className="text-center text-3xl font-semibold">Find Your Outfit</h2>
         <div className="mt-[75px] md:grid md:grid-cols-3">
           <div className="grid grid-cols-2 justify-items-center gap-3 md:col-span-2 md:gap-0 md:gap-y-5 md:px-6">
-            <CartProduct />
+            <CardProduct />
           </div>
 
           <div className="mt-5 md:mt-0">
