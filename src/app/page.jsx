@@ -1,11 +1,6 @@
-
-import Navbar from '@/components/navbar/layout'
-import Footer from '@/components/footer/page'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowCircleDown } from '@phosphor-icons/react/dist/ssr'
-// import { ArrowCircleDown } from '@phosphor-icons/react'
-
 
 export default function Home() {
   return (
