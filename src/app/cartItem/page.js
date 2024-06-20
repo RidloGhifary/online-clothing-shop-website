@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import CartNavbar from "../navbar/cartNavbar";
+import CartNavbar from "../../components/navbar/cartNavbar";
 import Image from "next/image";
 import OrderCalculation from "../orderCalculation/orderCalculation";
 import DeliveryDate from "../compents/deliveryDate/deliveryDate";

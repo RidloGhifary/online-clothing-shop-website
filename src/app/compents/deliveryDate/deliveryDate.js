@@ -1,6 +1,6 @@
 'use client'
 
-import { getDayAfterFiveDays, getDayAfterTwoDays, getDayAfterSevenDays } from "@/app/utils/getDay"
+import { getDayAfterFiveDays, getDayAfterTwoDays, getDayAfterSevenDays } from "@/utils/getDay"
 import { useEffect, useState } from "react";
 
 export default function DeliveryDate({ id, index }) {
