@@ -21,7 +21,7 @@
 
 /* Target the scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
   /* Set the width of the scrollbar */
 }
 
