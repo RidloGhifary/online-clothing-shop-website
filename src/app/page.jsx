@@ -55,30 +55,11 @@ export default function Home() {
       </div>
 
       <Colors />
-      <Banner />
 
-      <div className="mx-auto grid max-w-[650px] grid-cols-1 gap-9">
-        <InformationCard
-          imagePath="/assets/poster1.jpg"
-          title="Free ongkir se-Jawa"
-          description="Great news for who live in java island because you could order
-              from home without paying"
-        />
-        <InformationCard
-          imagePath="/assets/poster2.jpg"
-          title="Double stack Jahitan"
-          description="Grade A quality, cotton combed 24s premium reactive"
-          additionalClassName="order-last"
-        />
-        <InformationCard
-          imagePath="/assets/poster3.jpg"
-          title="Jahitan Rantai"
-          description="One of the references for making quality t-shirts, because the
-              results are quite neat and unique."
-        />
-      </div>
-
-      <div id="product">
+      <div
+        className="mx-auto w-full max-w-[900px] px-10 py-20 md:px-20"
+        id="product"
+      >
         <h2 className="text-center text-3xl font-semibold">Find Your Outfit</h2>
         <div className="mt-[75px] md:grid md:grid-cols-3">
           <div className="grid grid-cols-2 justify-items-center gap-3 md:col-span-2 md:gap-0 md:gap-y-5 md:px-6">
@@ -103,6 +84,29 @@ export default function Home() {
             />
           </div>
         </div>
+      </div>
+
+      <Banner />
+
+      <div className="mx-auto grid max-w-[650px] grid-cols-1 gap-9">
+        <InformationCard
+          imagePath="/assets/poster1.jpg"
+          title="Free ongkir se-Jawa"
+          description="Great news for who live in java island because you could order
+              from home without paying"
+        />
+        <InformationCard
+          imagePath="/assets/poster2.jpg"
+          title="Double stack Jahitan"
+          description="Grade A quality, cotton combed 24s premium reactive"
+          additionalClassName="order-last"
+        />
+        <InformationCard
+          imagePath="/assets/poster3.jpg"
+          title="Jahitan Rantai"
+          description="One of the references for making quality t-shirts, because the
+              results are quite neat and unique."
+        />
       </div>
 
       <div className="w-full md:p-10">
