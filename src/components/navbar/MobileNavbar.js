@@ -3,7 +3,7 @@ import imageSrcBlack from '/public/assets/jombang polosan logo black.png'
 import { Envelope, InstagramLogo, MessengerLogo, WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 
-export default function MobileLayout() {
+export default function MobileNavbar() {
   return (
     <div className="bg-neutral-900 backdrop-blur-md h-[100vh] text-white py-4">
       <div className='flex justify-center items-center gap-6 -ml-7'>

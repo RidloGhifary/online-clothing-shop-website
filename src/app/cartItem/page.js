@@ -1,12 +1,12 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import CartNavbar from "../../components/navbar/cartNavbar";
 import Image from "next/image";
 import OrderCalculation from "../orderCalculation/orderCalculation";
 import DeliveryDate from "../compents/deliveryDate/deliveryDate";
 import { FormatRupiah } from "@arismun/format-rupiah";
 import Link from "next/link";
+import CartNavbar from "@/components/navbar/cartNavbar";
 
 export default function cartItem() {
   const [updateCart, setUpdateCart] = useState([])

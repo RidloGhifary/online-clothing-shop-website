@@ -1,8 +1,9 @@
 'use client'
+
 import { FormatRupiah } from "@arismun/format-rupiah"
 import { useEffect, useState } from "react"
 
-export default function ComponentProducts({ dataSize, price, id, name, image, color, amount }) {
+export default function ProductActions({ dataSize, price, id, name, image, color, amount }) {
   const [selectedSize, setSelectedSize] = useState('XS')
 
   const handleSelectSize = (event) => {
@@ -51,10 +52,10 @@ export default function ComponentProducts({ dataSize, price, id, name, image, co
 
   const handleAddButton = (props) => {
     const price = calculateUpdatedPrice()
-    const exsitingItem = updateCart.findIndex(item => item.id === props.id)
-    if (exsitingItem !== -1) {
-      updateCart[exsitingItem].amount++
-      updateCart[exsitingItem].price += price
+    const existingItem = updateCart.findIndex(item => item.id === props.id)
+    if (existingItem !== -1) {
+      updateCart[existingItem].amount++
+      updateCart[existingItem].price += price
     } else {
       updateCart.push({
         id: props.id,
