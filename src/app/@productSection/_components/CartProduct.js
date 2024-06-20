@@ -1,16 +1,14 @@
 import Image from 'next/image';
 import { promises as fs } from 'fs';
-import ComponentProducts from './componentProducts/componenProducts';
+import ProductActions from './ProductActions';
 
 export default async function CartProduct() {
   const file = await fs.readFile(process.cwd() + '/data/products.json', 'utf8');
   const datas = JSON.parse(file);
 
   return (
-    datas?.map((data, index) => {
-
-      return (
-        <div id={data.id}
+    datas?.map((data, index) => (
+      <div id={data.id}
           className='w-[170px] md:w-[200px] border rounded-md shadow-md dark:shadow-neutral-500 dark:shadow-sm bg-white'
           key={index}>
           <div className='w-full'>
@@ -20,7 +18,7 @@ export default async function CartProduct() {
 
           <div className='p-3'>
             <p className='font-medium dark:text-neutral-800'>{data.name}</p>
-            <ComponentProducts
+            <ProductActions
               dataSize={data.size}
               price={data.price}
               id={data.id}
@@ -30,8 +28,6 @@ export default async function CartProduct() {
               amount={data.amount} />
           </div>
         </div>
-      );
-
-    })
+    ))
   );
 } 

@@ -2,35 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import OrderCalculation from "../orderCalculation/orderCalculation";
-import DeliveryDate from "../compents/deliveryDate/deliveryDate";
-import { FormatRupiah } from "@arismun/format-rupiah";
 import Link from "next/link";
-import CartNavbar from "@/components/navbar/cartNavbar";
+import CartNavbar from "@/components/navbar/CartNavbar";
+import OrderCalculation from "./_components/orderCalculation";
+import DeliveryDate from "./_components/deliveryDate";
+import RupiahFormat from "@/utils/rupiahFormat";
 
-export default function cartItem() {
+export default function Cart() {
   const [updateCart, setUpdateCart] = useState([])
-  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
     let updateCart = JSON.parse(localStorage.getItem('cartData'));
     setUpdateCart(updateCart)
   }, [updateCart])
-
-  useEffect(() => {
-    const theme = localStorage.getItem('theme')
-    if (theme === 'dark') setDarkMode(true)
-  }, [])
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }, [darkMode])
 
   const saveStorage = () => {
     localStorage.setItem('cartData', JSON.stringify(updateCart))
@@ -148,7 +132,7 @@ export default function cartItem() {
                         onClick={() => increaseAmount(i)}>+</button>
                     </div>
                     <p>
-                      <FormatRupiah value={cart.price} />
+                      {RupiahFormat(cart.price)}
                     </p>
                     <button className="mt-2 bg-green-500 text-white py-1 px-3 rounded-md hover:bg-green-600 transition-all duration-200"
                       onClick={() => deleteProductFromCart(i)}>
